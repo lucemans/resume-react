@@ -28,6 +28,7 @@ export const Profile = {
         new Skill('parcel', '', require('../assets/skills/parcel.ico')),
     ],
     repositories: [
+        new Repository('resume', 'This exact page you are looking at', 'https://github.com/lucemans/resume-react'),
         new Repository('dotansible', 'Machine Configuration with Ansible', 'https://github.com/lucemans/dotansible'),
         new Repository('dotserver', 'Server Configuration with Ansible', 'https://github.com/lucemans/dotserver'),
         new Repository('lcreate', 'Project Creation Tool', 'https://github.com/lucemans/generator-lcreate')
