@@ -52,6 +52,11 @@ $c5: #f7accf;
     scroll-behavior: smooth;
     transition: 250ms ease-in-out;
 
+    @media (max-width: 600px) {
+        height: auto;
+        font-size: 0.8em;
+    }
+
     &.light {
         background: rgba(244, 244, 244, 1);
         .inner {
@@ -73,19 +78,6 @@ $c5: #f7accf;
         }
     }
 
-    .unsupported {
-        color: white;
-        max-width: 80vw;
-        text-align: center;
-        span {
-            color: white;
-            &:first-of-type {
-                font-size: 2em;
-            }
-            font-size: 1.1em;
-        }
-    }
-
     .inner {
         margin: 0;
         padding: 2em 2em;
@@ -98,7 +90,8 @@ $c5: #f7accf;
             padding: 2em 1em;
         }
         @media (max-width: 600px) {
-
+            width: 100%;
+            padding: 2em 0;
         }
 
         > * {
@@ -110,6 +103,12 @@ $c5: #f7accf;
             justify-content: flex-start;
             align-items: center;
             margin-bottom: 1em;
+            .profile {
+                width: min(10vw, 10vh);
+                height: min(10vw, 10vh);
+                border-radius: 50%;
+                object-fit: contain;
+            }
             > .right {
                 margin-left: 1em;
                 .name {
@@ -119,12 +118,31 @@ $c5: #f7accf;
                     opacity: 0.6;
                 }
             }
+            @media (max-width: 600px) {
+                flex-direction: column;
+                margin-top: 1em;
+                .profile {
+                    width: 5em;
+                    height: 5em;
+                }
+                .right {
+                    display: flex;
+                    justify-self: center;
+                    align-items: center;
+                    margin-top: 1em;
+                    margin-left: 0em;
+                }
+            }
         }
 
         .bio {
             font-size: 0.8em;
             margin: 1em;
             padding-bottom: 1em;
+
+            @media (max-width: 600px) {
+                font-size: 0.9em;
+            }
         }
 
         .theme {
@@ -159,14 +177,6 @@ $c5: #f7accf;
         .title {
             font-weight: bolder;
         }
-    }
-
-    .profile {
-        width: min(10vw, 10vh);
-        height: min(10vw, 10vh);
-        border-radius: 50%;
-        object-fit: contain;
-        // transform: rotate(180deg);
     }
 
     .c1 {
@@ -280,6 +290,11 @@ $c5: #f7accf;
                         span {
                             margin-right: 0.5em;
                             font-size: 0.9em;
+
+                            @media (max-width: 600px) {
+                                font-size: 1em;
+                            }
+                            
                             img {
                                 width: 0.7em;
                                 height: 0.7em;

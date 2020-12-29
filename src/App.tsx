@@ -70,17 +70,6 @@ export default function App(): JSX.Element {
             });
     }, [0]);
 
-    if (isMobile == 0)
-        return (
-            <div className="app flex center">
-                <div className="unsupported flex column center">
-                    <span>Sorry</span>
-                    <span>This page was not optimized for this resolution...</span>
-                    <span>Please try it on a different device</span>
-                </div>
-            </div>
-        );
-
     return (
         <PageSettings.Provider value={{ dark, language }}>
             <div className={'app' + (dark ? '' : ' light')} onScroll={(e) => {
@@ -126,7 +115,7 @@ export default function App(): JSX.Element {
                     <Card label="Skills" colorClass={['c1']}>
                         <ul>
                             {
-                                horisort(Profile.skills, isMobile).map(skill => (
+                                horisort(Profile.skills, isMobile == 0 ? 2 : isMobile).map(skill => (
                                     <li key={skill.label} className="">
                                         <a href={skill.url} className="flex" target="_blank" rel="noreferrer">
                                             <img src={skill.image} alt="" />
