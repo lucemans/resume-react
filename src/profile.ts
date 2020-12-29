@@ -35,7 +35,7 @@ export const Profile = {
     ],
     experience: [
         new Company('EForumFactory', 'Software Engineer', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/eff.png')),
-        new Company('SHAPE American High School', 'Student', '2016 tot juni 2020', 'https://eforumfactory.be', require('../assets/experience/sahs.png')),
+        new Company('SHAPE American High School', 'Student', '2016 tot juni 2020', 'https://www.dodea.edu/SHAPEHS/index.cfm', require('../assets/experience/sahs.png')),
     ]
 };
 
