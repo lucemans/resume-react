@@ -1,19 +1,18 @@
+terraform {
+  backend "remote" {
+    organization = "lvksh"
+
+    workspaces {
+      name = "resume"
+    }
+  }
+}
+
 provider "kubernetes" {
-  load_config_file = "false"
 
-  insecure = true
-  
-  host = var.k8s_host
-  username = var.k8s_username
-  password = var.k8s_password
 }
 
-variable k8s_host {}
-variable k8s_username {}
-variable k8s_password {}
-variable container {
-  default="lvk.sh/resume:latest"
-}
+variable "container" {}
 
 resource "kubernetes_pod" "resume" {
   metadata {
@@ -72,23 +71,23 @@ resource "kubernetes_ingress" "resume" {
     name      = "resume"
     namespace = "lvksh"
     annotations = {
-      "traefik.ingress.kubernetes.io/router.tls" = "true"
+      "traefik.ingress.kubernetes.io/router.tls"              = "true"
       "traefik.ingress.kubernetes.io/router.tls.certresolver" = "letsencrypt"
-      "traefik.ingress.kubernetes.io/priority" = "4"
+      "traefik.ingress.kubernetes.io/priority"                = "4"
     }
   }
   spec {
-      rule {
-        host = "resume.lvk.sh"
-        http {
-          path {
-            path = "/"
-            backend {
-              service_name = "resume-service"
-              service_port = 80
-            }
+    rule {
+      host = "resume.lvk.sh"
+      http {
+        path {
+          path = "/"
+          backend {
+            service_name = "resume-service"
+            service_port = 80
           }
         }
       }
+    }
   }
 }
