@@ -82,7 +82,7 @@ jobs:
       working-directory: terraform
     
     - name: Setup vars
-      run: export TF_VAR_container=lvk.sh/resume:$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+      run: export TF_VAR_container="lvk.sh/resume:$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')" && echo $TF_VAR_container
       working-directory: terraform
 
     - name: Terraform Plan
