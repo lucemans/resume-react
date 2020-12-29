@@ -155,8 +155,7 @@ export default function App(): JSX.Element {
                                                 </span>
                                                 <span>{repo.description}</span>
                                             </div>
-                                            <div className="right">
-                                                &#x279C;
+                                            <div className="right" dangerouslySetInnerHTML={{__html: '&#x279C;'}}>
                                             </div>
                                         </a>
                                     </li>
