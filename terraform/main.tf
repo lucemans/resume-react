@@ -1,7 +1,7 @@
 provider "kubernetes" {
   load_config_file = "false"
 
-  cluster_ca_certificate = var.ca_certificate
+  insecure = true
   
   host = var.k8s_host
   username = var.k8s_username
