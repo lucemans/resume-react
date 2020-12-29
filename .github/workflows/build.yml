@@ -84,16 +84,13 @@ jobs:
     - name: Setup vars
       run: VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
 
-    - name: echo vars
-      run: echo '$VERSION'
-
-    - name: Terraform Init
-      run: terraform plan -var 'container=lvk.sh/resume:$(echo $VERSION)'
+    - name: Terraform Plan
+      run: terraform plan -var container=lvk.sh/resume:$VERSION
       working-directory: terraform
 
       # On push to master, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-      run: terraform apply -auto-approve -var 'container=lvk.sh/resume:$(echo $VERSION)'
+      run: terraform apply -auto-approve -var container=lvk.sh/resume:$VERSION
       working-directory: terraform
