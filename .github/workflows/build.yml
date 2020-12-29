@@ -82,7 +82,8 @@ jobs:
       working-directory: terraform
     
     - name: Setup vars
-      run: VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+      run: export VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+      working-directory: terraform
 
     - name: Terraform Plan
       run: terraform plan -var container=lvk.sh/resume:$VERSION
