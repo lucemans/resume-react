@@ -93,7 +93,7 @@ export default function App(): JSX.Element {
                         <img className="profile" src={profile} alt="" />
                         <div className="right flex column">
                             <div className="name">Luc van Kampen</div>
-                            <div className="sub">Software Engineer</div>
+                            <div className="sub">Fullstack Software Engineer</div>
                         </div>
                     </div>
 
@@ -156,7 +156,7 @@ export default function App(): JSX.Element {
                                                 <span>{repo.description}</span>
                                             </div>
                                             <div className="right">
-                                                ➜
+                                                &#x279C;
                                             </div>
                                         </a>
                                     </li>
