@@ -2,6 +2,10 @@ provider "kubernetes" {
 
 }
 
+variable container {
+  
+}
+
 resource "kubernetes_pod" "resume" {
   metadata {
     name      = "resume"
@@ -13,7 +17,7 @@ resource "kubernetes_pod" "resume" {
 
   spec {
     container {
-      image = "lvk.sh/resume:latest"
+      image = var.container
       name  = "resume"
 
       port {
