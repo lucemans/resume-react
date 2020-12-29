@@ -1,19 +1,9 @@
-terraform {
-  backend "remote" {
-    organization = "lvksh"
-
-    workspaces {
-      name = "resume"
-    }
-  }
-}
-
 provider "kubernetes" {
 
 }
 
 variable container {
-
+  default="lvk.sh/resume:latest"
 }
 
 resource "kubernetes_pod" "resume" {
