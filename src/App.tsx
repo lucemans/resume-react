@@ -6,6 +6,7 @@ import profile from '../assets/profile.jpeg';
 import { Profile } from './profile';
 import { horisort } from './util/array.horisort';
 import repo_icon from '../assets/repo.svg';
+import repo_light_icon from '../assets/repo_white.svg';
 import PageSettingsInterface from './objects/PageSettings';
 import Scrollbar from './scrollbar';
 
@@ -150,7 +151,7 @@ export default function App(): JSX.Element {
                                         <a href={repo.url} className="flex" target="_blank" rel="noreferrer">
                                             <div className="left">
                                                 <span>
-                                                    <img src={repo_icon} alt="" />
+                                                    <img src={dark ? repo_light_icon : repo_icon} alt="" />
                                                     {repo.label}
                                                 </span>
                                                 <span>{repo.description}</span>
