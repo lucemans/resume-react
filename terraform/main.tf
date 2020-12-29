@@ -8,6 +8,7 @@ provider "kubernetes" {
 variable k8s_host {}
 variable k8s_username {}
 variable k8s_password {}
+variable ca_certificate {}
 variable container {
   default="lvk.sh/resume:latest"
 }
