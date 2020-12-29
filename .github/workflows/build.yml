@@ -86,7 +86,7 @@ jobs:
       working-directory: terraform
 
     - name: Terraform Plan
-      run: terraform plan
+      run: export TF_VAR_container="lvk.sh/resume:$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')" && terraform plan
       working-directory: terraform
 
       # On push to master, build or change infrastructure according to Terraform configuration files
