@@ -62,6 +62,9 @@ $c5: #f7accf;
         .settings {
             background: white;
             color: black;
+            .hidden .icon .line {
+                background-color: #222;
+            }
         }
         .inner {
             color: black;
@@ -122,7 +125,7 @@ $c5: #f7accf;
                 font-weight: bolder;
             }
             .line {
-                background: #222;
+                background: white;
                 min-height: calc(1.5em / 5.4);
                 border-radius: 2px;
                 width: 100%;
