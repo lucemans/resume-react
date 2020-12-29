@@ -59,6 +59,10 @@ $c5: #f7accf;
 
     &.light {
         background: rgba(244, 244, 244, 1);
+        .settings {
+            background: white;
+            color: black;
+        }
         .inner {
             color: black;
             ul li a {
@@ -73,6 +77,100 @@ $c5: #f7accf;
                 }
                 .inside {
                     background: white;
+                }
+            }
+        }
+    }
+
+    .settings {
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        background: #383838;
+        padding: 0.5em;
+        border-radius: 5px;
+        font-size: 0.9em;
+        color: white;
+
+        @media (max-width: 600px) {
+            z-index: 2;
+            &:hover {
+                font-size: 1.8em;
+                right: 1em;
+                // min-width: 30vw;
+                .normal {
+                    font-size: 0.85em;
+                }
+            }
+        }
+
+        .hidden {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            .icon {
+                width: 1.5em;
+                height: 1.5em;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: stretch;
+                margin-right: 0.5em;
+            }
+            .caption {
+                font-weight: bolder;
+            }
+            .line {
+                background: #222;
+                min-height: calc(1.5em / 5.4);
+                border-radius: 2px;
+                width: 100%;
+            }
+        }
+        &:hover {
+            .hidden {
+                display: none;
+            }
+            .normal {
+                display: block;
+            }
+        }
+        .normal {
+            display: none;
+            padding: 1em;
+            font-size: 1.2em;
+            .head {
+                font-weight: bold;
+                font-size: 1.2em;
+                margin-bottom: 0.5em;
+            }
+            .option {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: 0.5em;
+                span {
+                    margin-right: 1em;
+                }
+            }
+            .switch {
+                height: 1.5em;
+                width: 3em;
+                background: white;
+                border: 2px solid black;
+                overflow: hidden;
+                cursor: pointer;
+                .inside {
+                    width: 1.1em;
+                    height: 100%;
+                    background: #333;
+                    transition: 250ms ease-in-out;
+                }
+                &.active {
+                    .inside {
+                        margin-left: 1.5em;
+                    }
                 }
             }
         }
@@ -301,7 +399,7 @@ $c5: #f7accf;
                                 margin: 0em;
                                 margin-bottom: 0.02em;
                                 margin-right: 0.25em;
-                                margin-left: -0.10em;
+                                margin-left: -0.1em;
                             }
                             &:last-of-type {
                                 font-size: 0.6em;
@@ -320,5 +418,12 @@ $c5: #f7accf;
                 }
             }
         }
+    }
+    select {
+        background: #383838;
+        color: white;
+        font-size: 1em;
+        font-weight: bolder;
+        padding: 0.2em;
     }
 }

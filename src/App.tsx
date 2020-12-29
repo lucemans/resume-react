@@ -75,8 +75,31 @@ export default function App(): JSX.Element {
             <div className={'app' + (dark ? '' : ' light')} onScroll={(e) => {
                 localStorage.setItem('scroll', e.currentTarget.scrollTop + '');
             }} ref={app}>
-                <div className="theme">
-                    <div className="switch"></div>
+                <div className="settings">
+                    <div className="hidden">
+                        <div className="icon">
+                            <div className="line"></div>
+                            <div className="line"></div>
+                            <div className="line"></div>
+                        </div>
+                        <div className="caption">{language == 'EN' ? 'Preferences' : 'Voorkeuren'}</div>
+                    </div>
+                    <div className="normal">
+                        <div className="head">{language == 'EN' ? 'Preferences' : 'Voorkeuren'}</div>
+                        <div className="option">
+                            <span>Language</span>
+                            <select name="" id="" value={language} onChange={(e) => {
+                                setLanguage(e.currentTarget.value as 'EN' | 'NL' || 'EN');
+                            }}>
+                                <option value="NL">{language == 'EN' ? 'Dutch' : 'Nederlands'}</option>
+                                <option value="EN">{language == 'EN' ? 'English' : 'Engels'}</option>
+                            </select>
+                        </div>
+                        <div className="option">
+                            <span>Dark Mode</span>
+                            <div className={'switch' + (dark ? ' active' : '')} onClick={() => { setDark(!dark); }}><div className="inside"></div></div>
+                        </div>
+                    </div>
                 </div>
                 <div className="inner flex column stretch">
                     <div className="header">
@@ -145,7 +168,7 @@ export default function App(): JSX.Element {
                                                 </span>
                                                 <span>{repo.description}</span>
                                             </div>
-                                            <div className="right" dangerouslySetInnerHTML={{__html: '&#x279C;'}}>
+                                            <div className="right" dangerouslySetInnerHTML={{ __html: '&#x279C;' }}>
                                             </div>
                                         </a>
                                     </li>
