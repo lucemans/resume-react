@@ -1,4 +1,4 @@
-provider "kubernetes" {
+terraform {
   backend "remote" {
     organization = "lvksh"
 
@@ -6,6 +6,10 @@ provider "kubernetes" {
       name = "resume"
     }
   }
+}
+
+provider "kubernetes" {
+
 }
 
 variable container {
