@@ -1,9 +1,15 @@
 provider "kubernetes" {
+  backend "remote" {
+    organization = "lvksh"
 
+    workspaces {
+      name = "resume"
+    }
+  }
 }
 
 variable container {
-  
+
 }
 
 resource "kubernetes_pod" "resume" {
