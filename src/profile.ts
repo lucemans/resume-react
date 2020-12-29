@@ -31,7 +31,7 @@ export const Profile = {
         new Repository('resume', 'This exact page you are looking at', 'https://github.com/lucemans/resume-react'),
         new Repository('dotansible', 'Machine Configuration with Ansible', 'https://github.com/lucemans/dotansible'),
         new Repository('dotserver', 'Server Configuration with Ansible', 'https://github.com/lucemans/dotserver'),
-        new Repository('lcreate', 'Project Creation Tool', 'https://github.com/lucemans/generator-lcreate'),
+        new Repository('generator-lcreate', 'Project Creation Tool', 'https://github.com/lucemans/generator-lcreate'),
     ],
     experience: [
         new Company('EForumFactory', 'Software Engineer', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/eff.png')),
