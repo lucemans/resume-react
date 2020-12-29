@@ -54,7 +54,7 @@ jobs:
       # with:
         # cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
     - name: Dump Kubeconfig file
-      run: echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > ./.kube && KUBECONFIG=$(pwd)/.kube
+      run: echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > ~/.kube/config && KUBECONFIG=~/.kube/config
       working-directory: terraform
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
