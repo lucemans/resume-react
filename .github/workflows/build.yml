@@ -54,20 +54,20 @@ jobs:
       # with:
         # cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-    - name: Print Location
-      run: pwd
-
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
+      working-directory: terraform
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
       run: terraform fmt -check
+      working-directory: terraform
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan
+      working-directory: terraform
     
     - name: Setup vars
       run: VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
@@ -80,3 +80,4 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       run: terraform apply -auto-approve -var 'container=lvk.sh/resume:$VERSION'
+      working-directory: terraform
