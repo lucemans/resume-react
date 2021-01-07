@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { logger } from '..';
 import profile from '../../assets/profile.jpeg';
 import { Profile } from '../profile';
-import { horisort } from '../util/array.horisort';
+import { horisort, horisort2 } from '../util/array.horisort';
 import repo_icon from '../../assets/repo.svg';
 import repo_light_icon from '../../assets/repo_white.svg';
 import PageSettingsInterface from '../objects/PageSettings';
@@ -180,13 +180,13 @@ export default function App(): JSX.Element {
                     <Card label="Skills" colorClass={['c1']}>
                         <ul>
                             {
-                                horisort(Profile.skills, isMobile == 0 ? 2 : isMobile).map(skill => (
+                                horisort2(Profile.skills, isMobile == 0 ? 2 : isMobile).map(skill => (
                                     <li key={skill.label} className="">
                                         <a href={skill.url} className="flex" target="_blank" rel="noreferrer" onMouseEnter={() => {
                                             setActiveHover({
                                                 id: 'skill_' + skill.label,
                                                 label: skill.label,
-                                                desc: 'Skill Description',
+                                                desc: skill.description,
                                                 image: skill.image
                                             })
                                         }} onMouseLeave={() => {

@@ -3,12 +3,13 @@ export default class Skill {
     label: string;
     url: string;
     color: string;
+    description: string;
 
-    constructor(label: string, url: string, image: string, color = 'white') {
+    constructor(label: string, url: string, image: string, description: string) {
         this.image = image;
         this.label = label;
         this.url = url;
-        this.color = color;
+        this.description = description;
     }
 
 }
