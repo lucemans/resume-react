@@ -7,7 +7,7 @@ export default function Footer(): JSX.Element {
     return (
         <div className="footer">
             <div>Made by <a href="https://resume.lvk.sh">Luc van Kampen</a></div>
-            <a className="version" href={"https://github.com/lucemans/resume-react/commit/" + VERSION}>Version { VERSION.substr(0, 7) || 'Unknown' }</a>
+            <a className="version" href={"https://github.com/lucemans/resume-react/commit/" + VERSION}>Version { VERSION ? VERSION.substr(0, 7) : 'Unknown' }</a>
         </div>
     );
 }
