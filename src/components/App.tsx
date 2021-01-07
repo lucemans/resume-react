@@ -29,6 +29,7 @@ export default function App(): JSX.Element {
     const [isMobile, setIsMobile] = React.useState(setWindowSize());
 
     const [activeHover, setActiveHover] = React.useState<null | { label: string, image: string, desc: string, id: string }>(null);
+    const [activeClick, setActiveClick] = React.useState<null | { label: string, image: string, desc: string, id: string }>(null);
 
     // Load scroll from storage
     useEffect(() => {
@@ -121,16 +122,27 @@ export default function App(): JSX.Element {
                     </div>
                 </div>
                 {
-                    activeHover &&
-                    <div className="sidebar">
-                        <div className="top">
-                            <img src={activeHover.image} alt=""/>
-                            <div className="label">{activeHover.label}</div>
+                    activeHover ? (
+                        <div className="sidebar">
+                            <div className="top">
+                                <img src={activeHover.image} alt="" />
+                                <div className="label">{activeHover.label}</div>
+                            </div>
+                            <div className="txt">
+                                {activeHover.desc}
+                            </div>
                         </div>
-                        <div className="txt">
-                            {activeHover.desc}
+                    ) : activeClick && (
+                        <div className="sidebar">
+                            <div className="top">
+                                <img src={activeClick.image} alt="" />
+                                <div className="label">{activeClick.label}</div>
+                            </div>
+                            <div className="txt">
+                                {activeClick.desc}
+                            </div>
                         </div>
-                    </div>
+                    )
                 }
                 <div className="inner flex column stretch">
                     <div className="header">
@@ -156,9 +168,9 @@ export default function App(): JSX.Element {
                                                 label: company.label,
                                                 desc: company.description,
                                                 image: company.image
-                                            })
+                                            });
                                         }} onMouseLeave={() => {
-                                            if (activeHover && activeHover.id == 'experience_' +company.label) {
+                                            if (activeHover && activeHover.id == 'experience_' + company.label) {
                                                 setActiveHover(null);
                                             }
                                         }}>
@@ -181,17 +193,30 @@ export default function App(): JSX.Element {
                         <ul>
                             {
                                 horisort2(Profile.skills, isMobile == 0 ? 2 : isMobile).map(skill => (
-                                    <li key={skill.label} className="">
+                                    <li key={skill.label} className={activeClick && activeClick.id == 'skill_' + skill.label ? 'active' : ''}>
                                         <a href={skill.url} className="flex" target="_blank" rel="noreferrer" onMouseEnter={() => {
                                             setActiveHover({
                                                 id: 'skill_' + skill.label,
                                                 label: skill.label,
                                                 desc: skill.description,
                                                 image: skill.image
-                                            })
+                                            });
                                         }} onMouseLeave={() => {
-                                            if (activeHover && activeHover.id == 'skill_' +skill.label) {
+                                            if (activeHover && activeHover.id == 'skill_' + skill.label) {
                                                 setActiveHover(null);
+                                            }
+                                        }}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            if (activeClick && activeClick.id == 'skill_' + skill.label) {
+                                                setActiveClick(null);
+                                            } else {
+                                                setActiveClick({
+                                                    id: 'skill_' + skill.label,
+                                                    label: skill.label,
+                                                    desc: skill.description,
+                                                    image: skill.image
+                                                });
                                             }
                                         }}>
                                             <img src={skill.image} alt="" />
@@ -212,17 +237,30 @@ export default function App(): JSX.Element {
                         <ul className="methods">
                             {
                                 horisort(Profile.methods, isMobile == 1 ? 1 : 2).map(method => (
-                                    <li key={method.label} className="">
+                                    <li key={method.label} className={activeClick && activeClick.id == 'method_' + method.label ? 'active' : ''}>
                                         <a href={method.label} className="flex" target="_blank" rel="noreferrer" onMouseEnter={() => {
                                             setActiveHover({
                                                 id: 'method_' + method.label,
                                                 label: method.label,
                                                 desc: method.desc,
                                                 image: method.image
-                                            })
+                                            });
                                         }} onMouseLeave={() => {
-                                            if (activeHover && activeHover.id == 'method_' +method.label) {
+                                            if (activeHover && activeHover.id == 'method_' + method.label) {
                                                 setActiveHover(null);
+                                            }
+                                        }}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            if (activeClick && activeClick.id == 'method_' + method.label) {
+                                                setActiveClick(null);
+                                            } else {
+                                                setActiveClick({
+                                                    id: 'method_' + method.label,
+                                                    label: method.label,
+                                                    desc: method.desc,
+                                                    image: method.image
+                                                });
                                             }
                                         }}>
                                             <img src={method.image} alt="" />

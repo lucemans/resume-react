@@ -353,6 +353,13 @@ $c5: #f7accf;
             width: 33.33%;
             text-decoration: none;
 
+            &.active {
+                a {
+                    outline: 2px solid black;
+                    // border: 2px solid black;
+                }
+            }
+
             @media (max-width: 900px) {
                 width: 50%;
             }
