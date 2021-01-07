@@ -485,6 +485,44 @@ $c5: #f7accf;
         padding: 0.2em;
     }
 
+    .contact {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 1em;
+        margin-bottom: 2em;
+
+        .icon {
+            height: 6em;
+            width: 6em;
+            margin-bottom: 1em;
+            transform: rotate(180deg);
+        }
+
+        .line {
+            margin-bottom: 1em;
+        }
+        .opts {
+            display: flex;
+            font-size: 0.7em;
+            flex-direction: column;
+            .opt {
+                margin: 0.3em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    height: 1em;
+                    width: 1em;
+                    margin-right: 0.4em;
+                    margin-top: 0.1em;
+                }
+            }
+        }
+    }
+
     .footer {
         width: 100%;
         height: auto;

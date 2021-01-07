@@ -10,6 +10,9 @@ import repo_light_icon from '../../assets/repo_white.svg';
 import PageSettingsInterface from '../objects/PageSettings';
 import Scrollbar from '../extra/scrollbar';
 import Footer from './Footer';
+import contact from '../../assets/profile.jpeg';
+import whatsapp from '../../assets/contact/whatsapp.svg';
+import outlook from '../../assets/contact/outlook.svg';
 
 function setWindowSize(): number {
     return window.matchMedia('(max-width: 900px)').matches ? (window.matchMedia('(max-width: 700px)').matches ? (window.matchMedia('(max-width: 500px)').matches ? 0 : 1) : 2) : 3;
@@ -292,6 +295,22 @@ export default function App(): JSX.Element {
                             }
                         </ul>
                     </Card>
+                    <div className="contact">
+
+                        <img src={contact} alt="" className="icon"/>
+                        <div className="line">Want to contact me? Try these</div>
+                        <div className="opts">
+                            <a href="mail:luc@lucemans.nl" className="opt">
+                                <img src={outlook} alt=""/>
+                                luc@lucemans.nl
+                            </a>
+                            <a href="tel:+32483080579" className="opt">
+                                <img src={whatsapp} alt=""/>
+                                +32 483 08 05 79
+                            </a>
+                        </div>
+
+                    </div>
                     <div className="theme flex column center">
                         {
                             themeOverride ?
