@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { Fragment } from 'react';
 import { useEffect } from 'react';
-import { logger } from '.';
-import profile from '../assets/profile.jpeg';
-import { Profile } from './profile';
-import { horisort } from './util/array.horisort';
-import repo_icon from '../assets/repo.svg';
-import repo_light_icon from '../assets/repo_white.svg';
-import PageSettingsInterface from './objects/PageSettings';
-import Scrollbar from './scrollbar';
+import { logger } from '..';
+import profile from '../../assets/profile.jpeg';
+import { Profile } from '../profile';
+import { horisort } from '../util/array.horisort';
+import repo_icon from '../../assets/repo.svg';
+import repo_light_icon from '../../assets/repo_white.svg';
+import PageSettingsInterface from '../objects/PageSettings';
+import Scrollbar from '../extra/scrollbar';
+import Footer from './Footer';
 
 function setWindowSize(): number {
     return window.matchMedia('(max-width: 900px)').matches ? (window.matchMedia('(max-width: 700px)').matches ? (window.matchMedia('(max-width: 500px)').matches ? 0 : 1) : 2) : 3;
@@ -205,6 +206,8 @@ export default function App(): JSX.Element {
                                 )
                         }
                     </div>
+                    
+                    <Footer />
                 </div>
                 <Scrollbar />
             </div >

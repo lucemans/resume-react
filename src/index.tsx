@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 import { Logger } from '@lucemans/logger';
-import App from './App';
+import App from './components/App';
 import chalk from 'chalk';
 
 // Gather the root element

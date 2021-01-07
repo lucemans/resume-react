@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PageSettings } from './App';
+import { PageSettings } from '../components/App';
 
 const scrollbar_dark = `
 ::-webkit-scrollbar {

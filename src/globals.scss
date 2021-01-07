@@ -182,6 +182,7 @@ $c5: #f7accf;
     .inner {
         margin: 0;
         padding: 2em 2em;
+        padding-bottom: 0;
         font-size: 1.5em;
         color: white;
         width: 900px;
@@ -428,5 +429,28 @@ $c5: #f7accf;
         font-size: 1em;
         font-weight: bolder;
         padding: 0.2em;
+    }
+
+    .footer {
+        width: 100%;
+        height: auto;
+        color: white;
+        background: #1b1b1b;
+        font-size: 1rem;
+        margin-top: 2em;
+        margin-bottom: 0;
+        padding: 1em;
+        font-weight: bolder;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a { 
+            color: inherit;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }

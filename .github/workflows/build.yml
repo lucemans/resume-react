@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Package
-        run: docker build . --tag $IMAGE_NAME
+        run: docker build --build-arg PROJECT_VERSION="${{ github.sha }}" . --tag $IMAGE_NAME
       - name: Log into Lucemans registry
         run: echo "${{ secrets.LVK_REGISTRY }}" | docker login lvk.sh -u lucemans --password-stdin
       - name: Push image
