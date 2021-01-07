@@ -34,8 +34,9 @@ export const Profile = {
     methods: [
         new Method('Containerization',
             `
-            I have a fair bit of experience
-            `, require('../assets/skills/kubernetes.svg')),
+            
+            Yes I do realize that this is the LXC icon.
+            `, require('../assets/methods/lxc.png')),
         new Method('DevOps', `
             Most of my projects (including my resume) are fully built and deployed through DevOps. Depending on the job I use varying systems: Github Actions, Azure, Gitlab, Jenkins, Circle CI, Travis, etc.
             For this project I chose to use Github actions to automatically build on every commit.
@@ -45,9 +46,13 @@ export const Profile = {
             In the even that the just built version doesnt pass the healthchecks the end user will never see it fail, and I will be alerted.
             This provides for a resielient way with zero-downtime and aside from the initial setup there is no further maintenance from my side.
             DevOps allow me to focus on the development of my code instead of spending (wasting) my time manually having to deploy and monitor the applications.
-        `, require('../assets/skills/kubernetes.svg')),
-        new Method('Agile Development', '', require('../assets/methods/agile.png')),
-        new Method('Mobile First', '', require('../assets/methods/mobile.png')),
+        `, require('../assets/methods/devops.png')),
+        new Method('Agile Development', `
+        
+        `, require('../assets/methods/agile.png')),
+        new Method('Mobile First', `
+        
+        `, require('../assets/methods/mobile.png')),
     ],
     repositories: [
         new Repository('resume', 'This exact page you are looking at', 'https://github.com/lucemans/resume-react'),
@@ -56,8 +61,12 @@ export const Profile = {
         new Repository('generator-lcreate', 'Project Creation Tool', 'https://github.com/lucemans/generator-lcreate'),
     ],
     experience: [
-        new Company('EForumFactory', 'Software Engineer', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/eff.png'), ''),
-        new Company('SHAPE American High School', 'Student', '2016 tot juni 2020', 'https://www.dodea.edu/SHAPEHS/index.cfm', require('../assets/experience/sahs.png'), ''),
+        new Company('EForumFactory', 'Software Engineer', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/eff.png'), `
+        
+        `),
+        new Company('SHAPE American High School', 'Student', '2016 tot juni 2020', 'https://www.dodea.edu/SHAPEHS/index.cfm', require('../assets/experience/sahs.png'), `
+        
+        `),
     ]
 };
 
