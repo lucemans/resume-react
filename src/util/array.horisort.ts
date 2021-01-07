@@ -2,11 +2,6 @@ import { alternate } from './array.alternate';
 import { chunk } from './array.chunk';
 
 export function horisort<T>(list: T[], columns: number): T[] {
-    // console.log('--horisort--');
-    // console.log('columns ' + columns);
-    // console.log('chunks: ' + Math.ceil(list.length / columns));
-    // console.log((chunk(list, Math.ceil(list.length / columns))));
-    // console.log(alternate((chunk(list, Math.ceil(list.length / columns)))));
 
     return alternate((chunk(list, Math.ceil(list.length / columns))));
 }
