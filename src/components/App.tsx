@@ -28,6 +28,8 @@ export default function App(): JSX.Element {
     const [themeOverride, setThemeOverride] = React.useState(false);
     const [isMobile, setIsMobile] = React.useState(setWindowSize());
 
+    const [activeHover, setActiveHover] = React.useState<null | { label: string, image: string, desc: string, id: string }>(null);
+
     // Load scroll from storage
     useEffect(() => {
         if (app.current) {
@@ -118,6 +120,18 @@ export default function App(): JSX.Element {
                         </div>
                     </div>
                 </div>
+                {
+                    activeHover &&
+                    <div className="sidebar">
+                        <div className="top">
+                            <img src={activeHover.image} alt=""/>
+                            <div className="label">{activeHover.label}</div>
+                        </div>
+                        <div className="txt">
+                            {activeHover.desc}
+                        </div>
+                    </div>
+                }
                 <div className="inner flex column stretch">
                     <div className="header">
                         <img className="profile" src={profile} alt="" />
@@ -136,7 +150,18 @@ export default function App(): JSX.Element {
                             {
                                 horisort(Profile.experience, 3).map(company => (
                                     <li key={company.label} className="company">
-                                        <a href={company.url} className="flex between norotate" target="_blank" rel="noreferrer">
+                                        <a href={company.url} className="flex between norotate" target="_blank" rel="noreferrer" onMouseEnter={() => {
+                                            setActiveHover({
+                                                id: 'experience_' + company.label,
+                                                label: company.label,
+                                                desc: 'Great Place to be at',
+                                                image: company.image
+                                            })
+                                        }} onMouseLeave={() => {
+                                            if (activeHover && activeHover.id == 'experience_' +company.label) {
+                                                setActiveHover(null);
+                                            }
+                                        }}>
                                             <div className="left flex">
                                                 <img src={company.image} alt="" />
                                                 <div className="info flex column">
@@ -157,7 +182,18 @@ export default function App(): JSX.Element {
                             {
                                 horisort(Profile.skills, isMobile == 0 ? 2 : isMobile).map(skill => (
                                     <li key={skill.label} className="">
-                                        <a href={skill.url} className="flex" target="_blank" rel="noreferrer">
+                                        <a href={skill.url} className="flex" target="_blank" rel="noreferrer" onMouseEnter={() => {
+                                            setActiveHover({
+                                                id: 'skill_' + skill.label,
+                                                label: skill.label,
+                                                desc: 'Skill Description',
+                                                image: skill.image
+                                            })
+                                        }} onMouseLeave={() => {
+                                            if (activeHover && activeHover.id == 'skill_' +skill.label) {
+                                                setActiveHover(null);
+                                            }
+                                        }}>
                                             <img src={skill.image} alt="" />
                                             <span>{skill.label}</span>
                                         </a>
@@ -170,6 +206,31 @@ export default function App(): JSX.Element {
                                 <span>{'and more'}</span>
                             </a>
                         </li> */}
+                        </ul>
+                    </Card>
+                    <Card label="Methodologies" colorClass={['c4']}>
+                        <ul className="methods">
+                            {
+                                horisort(Profile.methods, isMobile == 1 ? 1 : 2).map(method => (
+                                    <li key={method.label} className="">
+                                        <a href={method.label} className="flex" target="_blank" rel="noreferrer" onMouseEnter={() => {
+                                            setActiveHover({
+                                                id: 'method_' + method.label,
+                                                label: method.label,
+                                                desc: method.desc,
+                                                image: method.image
+                                            })
+                                        }} onMouseLeave={() => {
+                                            if (activeHover && activeHover.id == 'method_' +method.label) {
+                                                setActiveHover(null);
+                                            }
+                                        }}>
+                                            <img src={method.image} alt="" />
+                                            <span>{method.label}</span>
+                                        </a>
+                                    </li>
+                                ))
+                            }
                         </ul>
                     </Card>
                     <Card label="Repositories" colorClass={['c2']}>
@@ -206,7 +267,7 @@ export default function App(): JSX.Element {
                                 )
                         }
                     </div>
-                    
+
                     <Footer />
                 </div>
                 <Scrollbar />

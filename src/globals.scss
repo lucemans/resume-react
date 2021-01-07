@@ -179,6 +179,29 @@ $c5: #f7accf;
         }
     }
 
+    .sidebar {
+        position: fixed;
+        background: white;
+        top: 1em;
+        right: 1em;
+        padding: 2em;
+        width: 400px;
+        .top {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            img {
+                width: 5em;
+                height: 5em;
+            }
+            .label {
+                font-size: 2em;
+                margin-left: 1em;
+            }
+            margin-bottom: 2em;
+        }
+    }
+
     .inner {
         margin: 0;
         padding: 2em 2em;
@@ -208,15 +231,30 @@ $c5: #f7accf;
             align-items: center;
             margin-bottom: 1em;
             .profile {
-                width: min(10vw, 10vh);
-                height: min(10vw, 10vh);
+                width: 4em;
+                height: 4em;
                 border-radius: 50%;
                 object-fit: contain;
+                transition: 250ms;
+                border: none;
+                &:hover {
+                    transform: scale(1.5) rotate(180deg);
+                    cursor: pointer;
+                    border: 0.3em solid rgba(0,0,0,0.17);
+                }
+            }
+            .profile:hover ~ .right {
+                margin-left: 2em;
+                .name {
+                    font-size: 1.8em;
+                }
             }
             > .right {
                 margin-left: 1em;
+                transition: margin-left 250ms;
                 .name {
                     font-size: 1.3em;
+                    transition: font-size 250ms;
                 }
                 .sub {
                     opacity: 0.6;
@@ -373,6 +411,13 @@ $c5: #f7accf;
                         font-size: 0.8em;
                     }
                 }
+            }
+        }
+        &.methods {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            li {
+                min-width: 50%;
             }
         }
         &.repos {
