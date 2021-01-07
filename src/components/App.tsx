@@ -50,7 +50,7 @@ export default function App(): JSX.Element {
     // On color scheme change
     useEffect(() => {
         console.log('isDark: ' + dark);
-        if (!!window['plausible']) {
+        if (window['plausible']) {
             console.log('Logging Theme v1');
             window['plausible'](dark ? 'Dark Theme' : 'Light Theme');
         } else {
@@ -154,7 +154,7 @@ export default function App(): JSX.Element {
                                             setActiveHover({
                                                 id: 'experience_' + company.label,
                                                 label: company.label,
-                                                desc: 'Great Place to be at',
+                                                desc: company.description,
                                                 image: company.image
                                             })
                                         }} onMouseLeave={() => {

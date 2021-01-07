@@ -47,7 +47,7 @@ export const Profile = {
             DevOps allow me to focus on the development of my code instead of spending (wasting) my time manually having to deploy and monitor the applications.
         `, require('../assets/skills/kubernetes.svg')),
         new Method('Agile Development', '', require('../assets/methods/agile.png')),
-        new Method('Mobile First', '', require('../assets/methods/agile.png')),
+        new Method('Mobile First', '', require('../assets/methods/mobile.png')),
     ],
     repositories: [
         new Repository('resume', 'This exact page you are looking at', 'https://github.com/lucemans/resume-react'),
@@ -56,8 +56,8 @@ export const Profile = {
         new Repository('generator-lcreate', 'Project Creation Tool', 'https://github.com/lucemans/generator-lcreate'),
     ],
     experience: [
-        new Company('EForumFactory', 'Software Engineer', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/eff.png')),
-        new Company('SHAPE American High School', 'Student', '2016 tot juni 2020', 'https://www.dodea.edu/SHAPEHS/index.cfm', require('../assets/experience/sahs.png')),
+        new Company('EForumFactory', 'Software Engineer', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/eff.png'), ''),
+        new Company('SHAPE American High School', 'Student', '2016 tot juni 2020', 'https://www.dodea.edu/SHAPEHS/index.cfm', require('../assets/experience/sahs.png'), ''),
     ]
 };
 
