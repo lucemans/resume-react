@@ -13,6 +13,7 @@ import Footer from './Footer';
 import contact from '../../assets/profile.jpeg';
 import whatsapp from '../../assets/contact/whatsapp.svg';
 import outlook from '../../assets/contact/outlook.svg';
+import Banner from './Banner';
 
 function setWindowSize(): number {
     return window.matchMedia('(max-width: 900px)').matches ? (window.matchMedia('(max-width: 700px)').matches ? (window.matchMedia('(max-width: 500px)').matches ? 0 : 1) : 2) : 3;
@@ -33,6 +34,8 @@ export default function App(): JSX.Element {
 
     const [activeHover, setActiveHover] = React.useState<null | { label: string, image: string, desc: string, id: string }>(null);
     const [activeClick, setActiveClick] = React.useState<null | { label: string, image: string, desc: string, id: string }>(null);
+
+    const [settingsOpen, setSettingsOpen] = React.useState(false);
 
     // Load scroll from storage
     useEffect(() => {
@@ -98,8 +101,9 @@ export default function App(): JSX.Element {
             <div className={'app' + (dark ? '' : ' light')} onScroll={(e) => {
                 localStorage.setItem('scroll', e.currentTarget.scrollTop + '');
             }} ref={app}>
+                <Banner />
                 <div className="settings">
-                    <div className="hidden">
+                    <div className="button" onClick={() => {setSettingsOpen(!settingsOpen);}}>
                         <div className="icon">
                             <div className="line"></div>
                             <div className="line"></div>
@@ -107,7 +111,7 @@ export default function App(): JSX.Element {
                         </div>
                         <div className="caption">{language == 'EN' ? 'Preferences' : 'Voorkeuren'}</div>
                     </div>
-                    <div className="normal">
+                    <div className={'normal' + (settingsOpen ? ' visible' : '')}>
                         <div className="head">{language == 'EN' ? 'Preferences' : 'Voorkeuren'}</div>
                         <div className="option">
                             <span>Language</span>
