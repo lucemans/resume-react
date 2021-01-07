@@ -15,7 +15,8 @@ function setWindowSize(): number {
 }
 
 export const PageSettings = React.createContext<PageSettingsInterface>({
-    dark: false
+    dark: false,
+    language: 'NL'
 });
 
 export default function App(): JSX.Element {
@@ -42,6 +43,21 @@ export default function App(): JSX.Element {
     useEffect(() => {
         console.log('isMobile: ' + isMobile);
     }, [isMobile]);
+
+    // On color scheme change
+    useEffect(() => {
+        console.log('isDark: ' + dark);
+        if (!!window['plausible']) {
+            console.log('Logging Theme v1');
+            window['plausible'](dark ? 'Dark Theme' : 'Light Theme');
+        } else {
+            console.log('Plausible not loaded yet');
+            document.getElementById('plausiblescript').addEventListener('load', () => {
+                console.log('Logging Theme v2');
+                window['plausible'](dark ? 'Dark Theme' : 'Light Theme');
+            });
+        }
+    }, [dark]);
 
     // Initial page load
     useEffect(() => {
