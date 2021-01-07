@@ -13,6 +13,9 @@ COPY ./tsconfig.json ./
 COPY ./types ./types
 COPY ./assets ./assets
 
+ARG VERSION='Not Found'
+ENV PROJECT_VERSION=$VERSION
+
 RUN yarn build
 
 # Stage 2
