@@ -62,10 +62,12 @@ export const Profile = {
     ],
     experience: [
         new Company('EForumFactory', 'Software Engineer', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/eff.png'), `
-        
+            At the time of writing this I am employed at EForumFactory as a Software Engineer. EForum is an awesome company where I have learnt a variety of new skills,
+            as well as the ability to work with others since ive started working for them i've become acquainted with git, angular, react, graphql, containerization, mssql,
+            ansible, terraform, and so much more.
         `),
         new Company('SHAPE American High School', 'Student', '2016 tot juni 2020', 'https://www.dodea.edu/SHAPEHS/index.cfm', require('../assets/experience/sahs.png'), `
-        
+            Shape American High School is an International High School located on the Supreme Headquarters Allied Powers Europe military base in Mons, Belgium. 
         `),
     ]
 };

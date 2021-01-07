@@ -3,5 +3,8 @@
       "node_modules": true,
       ".vscode": true,
       "types": true,
+      "dist": true,
+      ".cache": true,
+      ".github": true
     }
 }
