@@ -11,9 +11,19 @@ env:
   IMAGE_NAME: resume
 
 jobs:
+  test:
+    runs-on: ubuntu-20.04
+    name: Hey
+    environment:
+      name: SANDBOX
+    steps:
+      - uses: actions/checkout@v2
+      - name: Ouput env variable
+        run: echo ${{ env.TEST }}
   build:
     runs-on: ubuntu-20.04
     name: 🔨 Build Package
+    needs: ['test']
     environment:
       name: SANDBOX
     #   url: "https://resume-staging.lvk.sh"
@@ -41,7 +51,6 @@ jobs:
     environment:
       name: SANDBOX
     #   url: "https://resume-sandbox.lvk.sh"
-
     steps:
     - name: Checkout
       uses: actions/checkout@v2
