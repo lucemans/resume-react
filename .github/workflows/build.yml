@@ -16,12 +16,12 @@ jobs:
     name: Hey
     environment:
       name: SANDBOX
-    env:
-      TEST: ${{ env.TEST }}
     steps:
       - uses: actions/checkout@v2
       - name: Ouput env variable
         run: echo ${{ env.TEST }}
+        env:
+          TEST: ${{ env.TEST }}
   build:
     runs-on: ubuntu-20.04
     name: 🔨 Build Package
