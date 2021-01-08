@@ -12,7 +12,7 @@ provider "kubernetes" {
 
 resource "kubernetes_pod" "resume" {
   metadata {
-    name      = "${var.prefix}resume"
+    name      = "resume${var.prefix}"
     namespace = "lvksh"
     labels = {
       app = "resume"
@@ -46,7 +46,7 @@ resource "kubernetes_pod" "resume" {
 
 resource "kubernetes_service" "resume" {
   metadata {
-    name      = "${var.prefix}resume-service"
+    name      = "resume-service${var.prefix}"
     namespace = "lvksh"
   }
 
@@ -64,7 +64,7 @@ resource "kubernetes_service" "resume" {
 
 resource "kubernetes_ingress" "resume" {
   metadata {
-    name      = "${var.prefix}resume"
+    name      = "resume${var.prefix}"
     namespace = "lvksh"
     annotations = {
       "traefik.ingress.kubernetes.io/router.tls"              = "true"
