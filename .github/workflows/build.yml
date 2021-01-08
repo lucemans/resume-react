@@ -19,9 +19,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Ouput env variable
-        run: echo ${{ env.TEST }}
+        run: echo ${{ secrets.TEST }}
         env:
-          TEST: ${{ env.TEST }}
+          TEST: ${{ secrets.TEST }}
   build:
     runs-on: ubuntu-20.04
     name: 🔨 Build Package
