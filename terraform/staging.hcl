@@ -1,2 +1,2 @@
-workspaces { name = "staging_resme" }
+workspaces { name = "staging_resume" }
 organization = "lvksh"
