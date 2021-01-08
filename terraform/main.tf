@@ -1,9 +1,12 @@
+variable "container" {}
+variable "prefix" {}
+
 terraform {
   backend "remote" {
     organization = "lvksh"
 
     workspaces {
-      name = "resume"
+      name = "${var.prefix}resume"
     }
   }
 }
@@ -12,11 +15,9 @@ provider "kubernetes" {
 
 }
 
-variable "container" {}
-
 resource "kubernetes_pod" "resume" {
   metadata {
-    name      = "resume"
+    name      = "${var.prefix}resume"
     namespace = "lvksh"
     labels = {
       app = "resume"
@@ -50,7 +51,7 @@ resource "kubernetes_pod" "resume" {
 
 resource "kubernetes_service" "resume" {
   metadata {
-    name      = "resume-service"
+    name      = "${var.prefix}resume-service"
     namespace = "lvksh"
   }
 
@@ -68,7 +69,7 @@ resource "kubernetes_service" "resume" {
 
 resource "kubernetes_ingress" "resume" {
   metadata {
-    name      = "resume"
+    name      = "${var.prefix}resume"
     namespace = "lvksh"
     annotations = {
       "traefik.ingress.kubernetes.io/router.tls"              = "true"

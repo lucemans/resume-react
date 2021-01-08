@@ -2,7 +2,8 @@ name: Build Package
 
 on:
   push:
-    branches: [master]
+    branches:
+      - dev
     tags:
       - v*
 
@@ -12,16 +13,19 @@ env:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    name: Build Package
+    name: 🔨 Build Package
+    environment:
+      name: SANDBOX
+      url: "https://resume-sandbox.lvk.sh"
     steps:
       - uses: actions/checkout@v2
       - name: Build Package
         run: docker build --build-arg VERSION="${{ github.sha }}" . --tag $IMAGE_NAME
       - name: Log into Lucemans registry
-        run: echo "${{ secrets.LVK_REGISTRY }}" | docker login lvk.sh -u lucemans --password-stdin
+        run: echo "${{ env.LVK_REGISTRY }}" | docker login lvk.sh -u lucemans --password-stdin
       - name: Push image
         run: |
-          IMAGE_ID=lvk.sh/resume
+          IMAGE_ID=${{ env.PACKAGE_NAME }}
 
           VERSION=$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')
 
@@ -31,39 +35,48 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
   terraform:
-    name: 'Terraform'
-    runs-on: ubuntu-latest
+    name: '📦 Deploy - Staging'
+    runs-on: ubuntu-20.04
     needs: ['build']
+    environment:
+      name: SANDBOX
+      url: "https://resume-sandbox.lvk.sh"
 
     steps:
-    # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Change Directories
-      run: cd terraform
-
-    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        cli_config_credentials_token: ${{ secrets.TERRAFORM_TOKEN }}
+        cli_config_credentials_token: ${{ env.TERRAFORM_TOKEN }}
     - name: Dump Kubeconfig file
-      run: mkdir ~/.kube && echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > ~/.kube/config && KUBECONFIG=~/.kube/config
+      run: mkdir ~/.kube && echo "${{ env.KUBE_CONFIG }}" | base64 -d > ~/.kube/config && KUBECONFIG=~/.kube/config
       working-directory: terraform
 
-    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
       working-directory: terraform
 
     - name: Terraform Plan
-      run: export TF_VAR_container="lvk.sh/resume:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform plan
+      run: export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && export TF_VAR_prefix="${{ env.PREFIX }}" && terraform plan
       working-directory: terraform
 
-      # On push to master, build or change infrastructure according to Terraform configuration files
-      # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-      run: export TF_VAR_container="lvk.sh/resume:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform apply -auto-approve
+      run: export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && export TF_VAR_prefix="${{ env.PREFIX }}"  && terraform apply -auto-approve
       working-directory: terraform
+
+  validate:
+    name: '✔️ Validate Deployment'
+    runs-on: ubuntu-20.04
+    needs: [terraform]
+    steps:
+    - name: Check that the page has been deployed successfully
+      uses: jtalk/url-health-check-action@v1.2
+      with:
+        url: "https://${{ env.URL }}"
+        follow-redirect: no
+        max-attempts: 5
+        retry-delay: 5s
+
+# 🧪

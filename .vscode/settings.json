@@ -5,6 +5,6 @@
       "types": true,
       "dist": true,
       ".cache": true,
-      ".github": true
+      ".github": false
     }
 }
