@@ -54,7 +54,7 @@ jobs:
       working-directory: terraform
 
     - name: Terraform Init
-      run: terraform init
+      run: terraform init --backend-config=${{ secrets.TERRAFORM_CONFIG }}
       working-directory: terraform
 
     - name: Terraform Plan

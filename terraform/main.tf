@@ -3,13 +3,7 @@ variable "prefix" {}
 variable "deployurl" {}
 
 terraform {
-  backend "remote" {
-    organization = "lvksh"
-
-    workspaces {
-      name = "${var.prefix}resume"
-    }
-  }
+  backend "remote" {}
 }
 
 provider "kubernetes" {
