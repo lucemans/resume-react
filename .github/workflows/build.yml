@@ -1,4 +1,4 @@
-name: Build Package
+name: Build & Deploy
 
 on:
   push:
@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-20.04
     name: 🔨 Build Package
     environment:
-      name: SANDBOX
-      url: "https://resume-sandbox.lvk.sh"
+      name: STAGING
+      url: "https://resume-staging.lvk.sh"
     steps:
       - uses: actions/checkout@v2
       - name: Build Package
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-20.04
     needs: ['build']
     environment:
-      name: SANDBOX
+      name: STAGING
       url: "https://resume-sandbox.lvk.sh"
 
     steps:
