@@ -11,21 +11,9 @@ env:
   IMAGE_NAME: resume
 
 jobs:
-  test:
-    runs-on: ubuntu-20.04
-    name: Hey
-    environment:
-      name: SANDBOX
-    steps:
-      - uses: actions/checkout@v2
-      - name: Ouput env variable
-        run: echo ${{ secrets.TEST }}
-        env:
-          TEST: ${{ secrets.TEST }}
   build:
     runs-on: ubuntu-20.04
     name: 🔨 Build Package
-    needs: ['test']
     environment:
       name: SANDBOX
     #   url: "https://resume-staging.lvk.sh"
@@ -34,10 +22,10 @@ jobs:
       - name: Build Package
         run: docker build --build-arg VERSION="${{ github.sha }}" . --tag $IMAGE_NAME
       - name: Log into Lucemans registry
-        run: echo "${{ env.LVK_REGISTRY }}" | docker login lvk.sh -u lucemans --password-stdin
+        run: echo "${{ secrets.LVK_REGISTRY }}" | docker login lvk.sh -u lucemans --password-stdin
       - name: Push image
         run: |
-          IMAGE_ID=${{ env.PACKAGE_NAME }}
+          IMAGE_ID=${{ secrets.PACKAGE_NAME }}
 
           VERSION=$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')
 
@@ -60,9 +48,9 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        cli_config_credentials_token: ${{ env.TERRAFORM_TOKEN }}
+        cli_config_credentials_token: ${{ secrets.TERRAFORM_TOKEN }}
     - name: Dump Kubeconfig file
-      run: mkdir ~/.kube && echo "${{ env.KUBE_CONFIG }}" | base64 -d > ~/.kube/config && KUBECONFIG=~/.kube/config
+      run: mkdir ~/.kube && echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > ~/.kube/config && KUBECONFIG=~/.kube/config
       working-directory: terraform
 
     - name: Terraform Init
@@ -70,22 +58,24 @@ jobs:
       working-directory: terraform
 
     - name: Terraform Plan
-      run: export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && export TF_VAR_prefix="${{ env.PREFIX }}" && export TF_VAR_deployurl="${{ env.DEPLOY_URL }}" && terraform plan
+      run: export TF_VAR_container="${{ secrets.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && export TF_VAR_prefix="${{ secrets.PREFIX }}" && export TF_VAR_deployurl="${{ secrets.DEPLOY_URL }}" && terraform plan
       working-directory: terraform
 
     - name: Terraform Apply
-      run: export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && export TF_VAR_prefix="${{ env.PREFIX }}" && export TF_VAR_deployurl="${{ env.DEPLOY_URL }}" && terraform apply -auto-approve
+      run: export TF_VAR_container="${{ secrets.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && export TF_VAR_prefix="${{ secrets.PREFIX }}" && export TF_VAR_deployurl="${{ secrets.DEPLOY_URL }}" && terraform apply -auto-approve
       working-directory: terraform
 
   validate:
     name: '✔️ Validate Deployment'
     runs-on: ubuntu-20.04
     needs: [terraform]
+    environment:
+      name: SANDBOX
     steps:
     - name: Check that the page has been deployed successfully
       uses: jtalk/url-health-check-action@v1.2
       with:
-        url: "https://${{ env.DEPLOY_URL }}"
+        url: "https://${{ secrets.DEPLOY_URL }}"
         follow-redirect: no
         max-attempts: 5
         retry-delay: 5s
