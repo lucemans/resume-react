@@ -58,7 +58,7 @@ jobs:
       working-directory: terraform
 
     - name: Terraform Plan
-      run: export TF_VAR_container="${{ secrets.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,') && terraform plan
+      run: export TF_VAR_container="${{ secrets.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform plan
       working-directory: terraform
       env:
         TF_VAR_prefix: ${{ secrets.PREFIX }}
