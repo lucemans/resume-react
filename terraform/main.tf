@@ -1,5 +1,6 @@
 variable "container" {}
 variable "prefix" {}
+variable "deployurl" {}
 
 terraform {
   backend "remote" {
@@ -79,7 +80,7 @@ resource "kubernetes_ingress" "resume" {
   }
   spec {
     rule {
-      host = "resume.lvk.sh"
+      host = var.deployurl
       http {
         path {
           path = "/"
