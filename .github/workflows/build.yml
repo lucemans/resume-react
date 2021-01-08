@@ -58,12 +58,18 @@ jobs:
       working-directory: terraform
 
     - name: Terraform Plan
-      run: export TF_VAR_container="${{ secrets.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && export TF_VAR_prefix="${{ secrets.PREFIX }}" && export TF_VAR_deployurl="${{ secrets.DEPLOY_URL }}" && terraform plan
+      run: export TF_VAR_container="${{ secrets.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,') && terraform plan
       working-directory: terraform
+      env:
+        TF_VAR_prefix: ${{ secrets.PREFIX }}
+        TF_VAR_deployurl: ${{ secrets.DEPLOY_URL }}
 
     - name: Terraform Apply
-      run: export TF_VAR_container="${{ secrets.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && export TF_VAR_prefix="${{ secrets.PREFIX }}" && export TF_VAR_deployurl="${{ secrets.DEPLOY_URL }}" && terraform apply -auto-approve
+      run: export TF_VAR_container="${{ secrets.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform apply -auto-approve
       working-directory: terraform
+      env:
+        TF_VAR_prefix: ${{ secrets.PREFIX }}
+        TF_VAR_deployurl: ${{ secrets.DEPLOY_URL }}
 
   validate:
     name: '✔️ Validate Deployment'
