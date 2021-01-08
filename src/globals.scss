@@ -85,6 +85,22 @@ $c5: #f7accf;
         }
     }
 
+    .banner {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+        background: rgba(0,0,0,0.17);
+
+        &.hide {
+            display: none;
+        }
+
+        .inside {
+            
+        }
+    }
+
     .settings {
         // position: absolute;
         // top: 1em;
