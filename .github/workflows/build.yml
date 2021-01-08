@@ -16,6 +16,8 @@ jobs:
     name: Hey
     environment:
       name: SANDBOX
+    env:
+      TEST: ${{ env.TEST }}
     steps:
       - uses: actions/checkout@v2
       - name: Ouput env variable
