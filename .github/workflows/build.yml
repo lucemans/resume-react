@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-20.04
     name: 🔨 Build Package
     environment:
-      name: STAGING
-      url: "https://resume-staging.lvk.sh"
+      name: staging
+    #   url: "https://resume-staging.lvk.sh"
     steps:
       - uses: actions/checkout@v2
       - name: Build Package
@@ -39,8 +39,8 @@ jobs:
     runs-on: ubuntu-20.04
     needs: ['build']
     environment:
-      name: STAGING
-      url: "https://resume-sandbox.lvk.sh"
+      name: staging
+    #   url: "https://resume-sandbox.lvk.sh"
 
     steps:
     - name: Checkout
