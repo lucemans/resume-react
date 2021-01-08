@@ -1,5 +1,5 @@
 variable "container" {}
-variable "prefix" {}
+variable "prefix" {default = "_hey"}
 variable "deployurl" {}
 
 terraform {
@@ -12,7 +12,7 @@ provider "kubernetes" {
 
 resource "kubernetes_pod" "resume" {
   metadata {
-    name      = "resume${var.prefix}"
+    name      = "resume${var.prefix}_hi"
     namespace = "lvksh"
     labels = {
       app = "resume"
@@ -46,7 +46,7 @@ resource "kubernetes_pod" "resume" {
 
 resource "kubernetes_service" "resume" {
   metadata {
-    name      = "resume-service${var.prefix}"
+    name      = "resume-service${var.prefix}_hi"
     namespace = "lvksh"
   }
 
@@ -64,7 +64,7 @@ resource "kubernetes_service" "resume" {
 
 resource "kubernetes_ingress" "resume" {
   metadata {
-    name      = "resume${var.prefix}"
+    name      = "resume${var.prefix}_hi"
     namespace = "lvksh"
     annotations = {
       "traefik.ingress.kubernetes.io/router.tls"              = "true"
