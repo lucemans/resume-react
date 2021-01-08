@@ -17,7 +17,6 @@ jobs:
     environment:
       name: SANDBOX
     #   url: "https://resume-staging.lvk.sh"
-    #
     steps:
       - uses: actions/checkout@v2
       - name: Build Package
