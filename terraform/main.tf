@@ -79,7 +79,7 @@ resource "kubernetes_ingress" "resume" {
         path {
           path = "/"
           backend {
-            service_name = "resume-service"
+            service_name = "${var.prefix}resume-service"
             service_port = 80
           }
         }
