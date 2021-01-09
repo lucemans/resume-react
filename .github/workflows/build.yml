@@ -69,7 +69,7 @@ jobs:
         TF_VAR_deployurl: ${{ secrets.DEPLOY_URL }}
 
   validate-staging:
-    name: '✔️ Validate Deployment'
+    name: '✔️ Validate Staging Deployment'
     runs-on: ubuntu-20.04
     needs: ['terraform-staging']
     environment:
@@ -84,7 +84,7 @@ jobs:
         retry-delay: 5s
 
   terraform-master:
-    name: '📦 Deploy - Staging'
+    name: '📦 Deploy - Production'
     runs-on: ubuntu-20.04
     needs: ['validate-staging']
     environment:
@@ -121,7 +121,7 @@ jobs:
         TF_VAR_deployurl: ${{ secrets.DEPLOY_URL }}
 
   validate-master:
-    name: '✔️ Validate Deployment'
+    name: '✔️ Validate Production Deployment'
     runs-on: ubuntu-20.04
     needs: ['terraform-master']
     environment:
