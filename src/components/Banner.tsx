@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export default function Banner(): JSX.Element {
 
-    const [clicked, setClicked] = React.useState(!!localStorage.getItem('resume_banner') || false);
+    const [clicked, setClicked] = React.useState(!!localStorage.getItem('resume_banner') || true);
     
     return (
         <div className={clicked ? 'banner hide' : 'banner'}>
