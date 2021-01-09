@@ -15,7 +15,7 @@ resource "kubernetes_pod" "resume" {
     name      = "${var.prefix}resume"
     namespace = "lvksh"
     labels = {
-      app = "resume"
+      app = "${var.prefix}resume"
     }
   }
 
@@ -52,7 +52,7 @@ resource "kubernetes_service" "resume" {
 
   spec {
     selector = {
-      app = "resume"
+      app = "${var.prefix}resume"
     }
     type = "ClusterIP"
     port {
