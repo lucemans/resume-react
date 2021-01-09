@@ -87,6 +87,7 @@ jobs:
     name: '📦 Deploy - Production'
     runs-on: ubuntu-20.04
     needs: ['validate-staging']
+    if: github.ref == 'refs/heads/master'
     environment:
       name: PROD
       url: "https://resume.lvk.sh"
