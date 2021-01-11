@@ -34,7 +34,9 @@ export const Profile = {
     methods: [
         new Method('Containerization',
             `
-            
+            If it can exist in a container, it should exist in a container. Wether that is LXC or Containerd. Pertaining to containerization everything ive made that is a service, runs in a container. Containers allow for reproducible, environment-agnostic, and highly-scalable applications whose deployment and
+            behaviour can be automated in as many ways you can realize. Healthchecks, AB-Split Testing, Rollout updates, 0-downtime, QA-Testing, you name it, I use it.
+            I am absolutely in love with containerization and everything that comes with it.
             Yes I do realize that this is the LXC icon.
             `, require('../assets/methods/lxc.png')),
         new Method('DevOps', `
@@ -48,10 +50,13 @@ export const Profile = {
             DevOps allow me to focus on the development of my code instead of spending (wasting) my time manually having to deploy and monitor the applications.
         `, require('../assets/methods/devops.png')),
         new Method('Agile Development', `
-        
+            Agile development is the process of writing code, evaluating the current state, reassessing, and repeating. It allows for quick, and targetted development
+            focused on what is neccessary at that point in time, rather then following a planning that was set out initially.
+            Personally I tend to have times where I have extereme moments of productivity, and during these times I tend to accelerate development and agile development helps me accommodate for this
+            increase in productivity.
         `, require('../assets/methods/agile.png')),
         new Method('Mobile First', `
-        
+            
         `, require('../assets/methods/mobile.png')),
     ],
     repositories: [
