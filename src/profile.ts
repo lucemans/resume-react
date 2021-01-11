@@ -40,14 +40,14 @@ export const Profile = {
             Yes I do realize that this is the LXC icon.
             `, require('../assets/methods/lxc.png')),
         new Method('DevOps', `
-            Most of my projects (including my resume) are fully built and deployed through DevOps. Depending on the job I use varying systems: Github Actions, Azure, Gitlab, Jenkins, Circle CI, Travis, etc.
+            Most of my projects (including this resume) are fully built and deployed through DevOps. Depending on the job I use varying systems: Github Actions, Azure, Gitlab, Jenkins, Circle CI, Travis, etc.
             For this project I chose to use Github actions to automatically build on every commit.
             The entire application gets built and packaged into a docker container, and is pushed to my private repository.
             Once its there the pipeline triggers a set of Terraform commands that in turn automatically perform a rolling update on my kubernetes cluster.
             This means that the application has an absolute zero seconds of downtime, and the update will happen as smooth as possible.
             In the even that the just built version doesnt pass the healthchecks the end user will never see it fail, and I will be alerted.
             This provides for a resielient way with zero-downtime and aside from the initial setup there is no further maintenance from my side.
-            DevOps allow me to focus on the development of my code instead of spending (wasting) my time manually having to deploy and monitor the applications.
+            DevOps allow me to focus on the development of code instead of spending (wasting) my time manually having to deploy and monitor the applications.
         `, require('../assets/methods/devops.png')),
         new Method('Agile Development', `
             Agile development is the process of writing code, evaluating the current state, reassessing, and repeating. It allows for quick, and targetted development
@@ -56,7 +56,8 @@ export const Profile = {
             increase in productivity.
         `, require('../assets/methods/agile.png')),
         new Method('Mobile First', `
-            
+            In the modern day and age we all use our phones, some more then others. Wether it is through the convenience of carrying a micro-computer with you all day long, or because you really had no choice. When it comes down to it, the end-user uses their phone.
+            In modern day websites it is thereby of utmost importance that all 
         `, require('../assets/methods/mobile.png')),
     ],
     repositories: [
