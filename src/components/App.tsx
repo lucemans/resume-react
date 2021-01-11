@@ -96,6 +96,11 @@ export default function App(): JSX.Element {
             .addListener(() => {
                 setIsMobile(setWindowSize());
             });
+
+        if (location.search.includes('pdf=yes')) {
+            console.log('downloading pdf straight away');
+            window.print();
+        }
     }, [0]);
 
     return (
