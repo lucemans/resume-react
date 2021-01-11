@@ -13,6 +13,7 @@ import Footer from './Footer';
 import contact from '../../assets/profile.jpeg';
 import whatsapp from '../../assets/contact/whatsapp.svg';
 import outlook from '../../assets/contact/outlook.svg';
+import linkedin from '../../assets/contact/linkedin.svg';
 import Banner from './Banner';
 
 function setWindowSize(): number {
@@ -311,6 +312,10 @@ export default function App(): JSX.Element {
                             <a href="tel:+32483080579" className="opt">
                                 <img src={whatsapp} alt=""/>
                                 +32 483 08 05 79
+                            </a>
+                            <a href="https://www.linkedin.com/in/luc-van-kampen-303038186/" className="opt">
+                                <img src={linkedin} alt=""/>
+                                Luc van Kampen
                             </a>
                         </div>
 
