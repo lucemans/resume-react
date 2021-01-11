@@ -5,7 +5,7 @@ import Method from './objects/Method';
 
 export const Profile = {
     bio: {
-        'NL': 'Mijn naam is Luc, op het moment dat ik dit schrijf (29 December 2020), ben ik al 18 jaar op deze aardbodem, waarvan ik de laatste 9 jaar fanatiek aan het programmeren ben geweest. Ik ben een nieuwsgierig individueel, die gek is op het maken en creeeren. In combinatie met een ontzettend doorzettingsvermogen ben ik tot elke taak in staat. Ik woon in Antwerpen, Belgie.',
+        'NL': 'Mijn naam is Luc, op het moment dat ik dit schrijf (29 December 2020), ben ik al 18 jaar op deze aardbodem, waarvan ik de laatste 9 jaar fanatiek aan het programmeren ben geweest. Ik ben een nieuwsgierig individu, die gek is op maken en creëren. In combinatie met een enorm doorzettingsvermogen ben ik tot elke taak in staat. Ik woon in Antwerpen, België.',
         'EN': 'My name is Luc, at the time of writing this (December 29th 2020), I have been on this planet for 18 years, ofwhich I have spent the last 9 programming like a mad man. I am a curious individual, who loves to create epic stuff. Paired with a crazy level of determination I\'m the man for every job. I live in Antwerp, Belgium.',
     },
     skills: [

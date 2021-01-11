@@ -98,8 +98,10 @@ export default function App(): JSX.Element {
             });
 
         if (location.search.includes('pdf=yes')) {
-            console.log('downloading pdf straight away');
-            window.print();
+            setTimeout(() => {
+                console.log('downloading pdf straight away');
+                window.print();
+            }, 1000);
         }
     }, [0]);
 
