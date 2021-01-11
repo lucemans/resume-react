@@ -197,10 +197,55 @@ export default function App(): JSX.Element {
                         </ul>
                     </Card>
 
-                    <Card label="Skills" colorClass={['c1']}>
+                    <Card label="Skills I have" colorClass={['c1']}>
                         <ul>
                             {
                                 horisort2(Profile.skills, isMobile == 0 ? 2 : isMobile).map(skill => (
+                                    <li key={skill.label} className={activeClick && activeClick.id == 'skill_' + skill.label ? 'active' : ''}>
+                                        <a href={skill.url} className="flex" target="_blank" rel="noreferrer" onMouseEnter={() => {
+                                            setActiveHover({
+                                                id: 'skill_' + skill.label,
+                                                label: skill.label,
+                                                desc: skill.description,
+                                                image: skill.image
+                                            });
+                                        }} onMouseLeave={() => {
+                                            if (activeHover && activeHover.id == 'skill_' + skill.label) {
+                                                setActiveHover(null);
+                                            }
+                                        }}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            if (activeClick && activeClick.id == 'skill_' + skill.label) {
+                                                setActiveClick(null);
+                                            } else {
+                                                setActiveClick({
+                                                    id: 'skill_' + skill.label,
+                                                    label: skill.label,
+                                                    desc: skill.description,
+                                                    image: skill.image
+                                                });
+                                            }
+                                        }}>
+                                            <img src={skill.image} alt="" />
+                                            <span>{skill.label}</span>
+                                        </a>
+                                    </li>
+                                ))
+                            }
+                            {/* <li key={'more'} className="more">
+                            <a href={'#'} className="flex" target="_blank" rel="noreferrer">
+                                <img src={'https://cdn0.iconfinder.com/data/icons/user-interface-255/100/more-512.png'} alt="" />
+                                <span>{'and more'}</span>
+                            </a>
+                        </li> */}
+                        </ul>
+                    </Card>
+                    
+                    <Card label="What I'm Learning" colorClass={['c1']}>
+                        <ul>
+                            {
+                                horisort2(Profile.learning, isMobile == 0 ? 2 : isMobile).map(skill => (
                                     <li key={skill.label} className={activeClick && activeClick.id == 'skill_' + skill.label ? 'active' : ''}>
                                         <a href={skill.url} className="flex" target="_blank" rel="noreferrer" onMouseEnter={() => {
                                             setActiveHover({
@@ -279,7 +324,7 @@ export default function App(): JSX.Element {
                             }
                         </ul>
                     </Card>
-                    <Card label="Repositories" colorClass={['c2']}>
+                    <Card label="My Repositories" colorClass={['c2']}>
                         <ul className="repos">
                             {
                                 horisort(Profile.repositories, isMobile == 1 ? 1 : 2).map(repo => (

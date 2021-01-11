@@ -31,6 +31,11 @@ export const Profile = {
         new Skill('redis', 'https://redislabs.com/', require('../assets/skills/redis.svg'), 'Redis is a key-value datastore that can be used for caching, job-processing, and much much more. Personally I use redis for communication between microprocesses to allow for job-processing, queues, caching, and smart-home metrics.'),
         new Skill('mongodb', 'https://mongodb.org/', require('../assets/skills/mongo.svg'), 'MongoDB is an object database that allows you to store javascript objects in a collection. Its super handy for storing data that might change in form, or just for being a lazy programmer.')
     ],
+    learning: [
+        new Skill('rust', 'https://mongodb.org/', require('../assets/skills/rust.svg'), 'Rust is a language im currently learning. It is developed with the experience of C and C++ in mind. Currently im building simple CLI tools with rust, but I hope to be able to build performance-critical applications in the future. Another thing im looking forward to is rust over WebAssembly to build high-performance applications in the browser. Rust is incredibly performant, and best of all, memory-safe.'),
+        new Skill('go', '', require('../assets/skills/go.svg'), 'Go is a language ive been interested in for a long while, although mainly because of the hype around it, i have seen some legitimate cool applications of go. Currently im trying to get the gist of how it works, although right now its not my #1 priority.'),
+        new Skill('tailwind', '', require('../assets/skills/tailwind.svg'), 'Tailwind is an awesome new css framework I just learnt, its widely used, and allows for simple, quick-to-build, websites to be made. One of the features I like the most is the way it handles its colors. Its done through the material.ui spec, where each color is assigned a value based on its shade of a base color.')
+    ],
     methods: [
         new Method('Containerization',
             `
