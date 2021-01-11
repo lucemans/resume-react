@@ -15,6 +15,7 @@ import whatsapp from '../../assets/contact/whatsapp.svg';
 import outlook from '../../assets/contact/outlook.svg';
 import linkedin from '../../assets/contact/linkedin.svg';
 import Banner from './Banner';
+import {Pdf, Web} from './Pdf';
 
 function setWindowSize(): number {
     return window.matchMedia('(max-width: 900px)').matches ? (window.matchMedia('(max-width: 700px)').matches ? (window.matchMedia('(max-width: 500px)').matches ? 0 : 1) : 2) : 3;
@@ -129,6 +130,7 @@ export default function App(): JSX.Element {
                         </div>
                     </div>
                 </div>
+                <Pdf />
                 {
                     activeHover ? (
                         <div className="sidebar">
