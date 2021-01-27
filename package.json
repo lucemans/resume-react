@@ -3,6 +3,17 @@
   "version": "1.0.0",
   "license": "MIT",
   "browserslist": "> 0.25%, not dead",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "overrideBrowserslist": [
+          "> 1%",
+          "last 4 versions",
+          "ie >= 9"
+        ]
+      }
+    }
+  },
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
