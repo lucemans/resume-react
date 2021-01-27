@@ -2,6 +2,7 @@
   "name": "resume_react",
   "version": "1.0.0",
   "license": "MIT",
+  "browserslist": "> 0.25%, not dead",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",

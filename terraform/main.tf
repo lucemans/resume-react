@@ -9,8 +9,6 @@ terraform {
 provider "kubernetes" {
     config_path = "~/.kube/config"
     config_context = "default"
-    # host = "https://144.76.62.53:6443"
-    # cert
 }
 
 resource "kubernetes_pod" "resume" {
