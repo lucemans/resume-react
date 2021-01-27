@@ -17,7 +17,7 @@ const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
     navigator.userAgent.indexOf('CriOS') == -1 &&
     navigator.userAgent.indexOf('FxiOS') == -1;
 if (isSafari) {
-    render(<Safari></Safari>, root);
+    console.log('SAFARI');
     exit;
 }
 if (!isSafari) {
