@@ -22,7 +22,6 @@ if (isSafari) {
 }
 if (!isSafari) {
     console.log('NOT SAFARI');
+    // Render our App
+    render(<App></App>, root);
 }
-
-// Render our App
-render(<App></App>, root);
