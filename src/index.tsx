@@ -12,12 +12,13 @@ const root = document.getElementById('root');
 // Initialize our logger
 export const logger = new Logger(chalk.hex('51ccff')('REACT'));
 
-const ua = navigator.userAgent.toLowerCase();
-if (ua.indexOf('safari') != -1) {
-    if (ua.indexOf('chrome') <= -1) {
-        render(<Safari></Safari>, root);
-        exit;
-    }
+const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+    navigator.userAgent &&
+    navigator.userAgent.indexOf('CriOS') == -1 &&
+    navigator.userAgent.indexOf('FxiOS') == -1;
+if (isSafari) {
+    render(<Safari></Safari>, root);
+    exit;
 }
 
 // Render our App
