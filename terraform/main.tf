@@ -8,6 +8,7 @@ terraform {
 
 provider "kubernetes" {
     host = "https://144.76.62.53:6443"
+    
 }
 
 resource "kubernetes_pod" "resume" {
