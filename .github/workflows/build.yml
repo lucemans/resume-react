@@ -57,14 +57,14 @@ jobs:
       working-directory: terraform
 
     - name: Terraform Plan
-      run: export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform plan
+      run: export KUBECONFIG=~/.kube/config && export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform plan
       working-directory: terraform
       env:
         TF_VAR_prefix: ${{ secrets.PREFIX }}
         TF_VAR_deployurl: ${{ env.STAGING_URL }}
 
     - name: Terraform Apply
-      run: export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform apply -auto-approve
+      run: export KUBECONFIG=~/.kube/config && export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform apply -auto-approve
       working-directory: terraform
       env:
         TF_VAR_prefix: ${{ secrets.PREFIX }}
@@ -108,14 +108,14 @@ jobs:
       working-directory: terraform
 
     - name: Terraform Plan
-      run: export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform plan
+      run: export KUBECONFIG=~/.kube/config && export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform plan
       working-directory: terraform
       env:
         TF_VAR_prefix: ${{ secrets.PREFIX }}
         TF_VAR_deployurl: ${{ env.PRODUCTION_URL }}
 
     - name: Terraform Apply
-      run: export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform apply -auto-approve
+      run: export KUBECONFIG=~/.kube/config && export TF_VAR_container="${{ env.PACKAGE_NAME }}:$(echo "${{ github.sha }}" | sed -e 's,.*/\(.*\),\1,')" && terraform apply -auto-approve
       working-directory: terraform
       env:
         TF_VAR_prefix: ${{ secrets.PREFIX }}

@@ -7,8 +7,8 @@ terraform {
 }
 
 provider "kubernetes" {
-    host = "https://144.76.62.53:6443"
-    
+    # host = "https://144.76.62.53:6443"
+    # cert
 }
 
 resource "kubernetes_pod" "resume" {
