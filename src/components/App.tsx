@@ -15,7 +15,7 @@ import whatsapp from '../../assets/contact/whatsapp.svg';
 import outlook from '../../assets/contact/outlook.svg';
 import linkedin from '../../assets/contact/linkedin.svg';
 import Banner from './Banner';
-import {Pdf, Web} from './Pdf';
+import { Pdf, Web } from './Pdf';
 
 function setWindowSize(): number {
     return window.matchMedia('(max-width: 900px)').matches ? (window.matchMedia('(max-width: 700px)').matches ? (window.matchMedia('(max-width: 500px)').matches ? 0 : 1) : 2) : 3;
@@ -112,7 +112,7 @@ export default function App(): JSX.Element {
             }} ref={app}>
                 <Banner />
                 <div className="settings">
-                    <div className="button" onClick={() => {setSettingsOpen(!settingsOpen);}}>
+                    <div className="button" onClick={() => { setSettingsOpen(!settingsOpen); }}>
                         <div className="icon">
                             <div className="line"></div>
                             <div className="line"></div>
@@ -223,19 +223,19 @@ export default function App(): JSX.Element {
                                                 setActiveHover(null);
                                             }
                                         }}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            if (activeClick && activeClick.id == 'skill_' + skill.label) {
-                                                setActiveClick(null);
-                                            } else {
-                                                setActiveClick({
-                                                    id: 'skill_' + skill.label,
-                                                    label: skill.label,
-                                                    desc: skill.description,
-                                                    image: skill.image
-                                                });
-                                            }
-                                        }}>
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                if (activeClick && activeClick.id == 'skill_' + skill.label) {
+                                                    setActiveClick(null);
+                                                } else {
+                                                    setActiveClick({
+                                                        id: 'skill_' + skill.label,
+                                                        label: skill.label,
+                                                        desc: skill.description,
+                                                        image: skill.image
+                                                    });
+                                                }
+                                            }}>
                                             <img src={skill.image} alt="" />
                                             <span>{skill.label}</span>
                                         </a>
@@ -250,7 +250,7 @@ export default function App(): JSX.Element {
                         </li> */}
                         </ul>
                     </Card>
-                    
+
                     <Card label="What I'm Learning" colorClass={['c1']}>
                         <ul>
                             {
@@ -268,19 +268,19 @@ export default function App(): JSX.Element {
                                                 setActiveHover(null);
                                             }
                                         }}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            if (activeClick && activeClick.id == 'skill_' + skill.label) {
-                                                setActiveClick(null);
-                                            } else {
-                                                setActiveClick({
-                                                    id: 'skill_' + skill.label,
-                                                    label: skill.label,
-                                                    desc: skill.description,
-                                                    image: skill.image
-                                                });
-                                            }
-                                        }}>
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                if (activeClick && activeClick.id == 'skill_' + skill.label) {
+                                                    setActiveClick(null);
+                                                } else {
+                                                    setActiveClick({
+                                                        id: 'skill_' + skill.label,
+                                                        label: skill.label,
+                                                        desc: skill.description,
+                                                        image: skill.image
+                                                    });
+                                                }
+                                            }}>
                                             <img src={skill.image} alt="" />
                                             <span>{skill.label}</span>
                                         </a>
@@ -312,19 +312,19 @@ export default function App(): JSX.Element {
                                                 setActiveHover(null);
                                             }
                                         }}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            if (activeClick && activeClick.id == 'method_' + method.label) {
-                                                setActiveClick(null);
-                                            } else {
-                                                setActiveClick({
-                                                    id: 'method_' + method.label,
-                                                    label: method.label,
-                                                    desc: method.desc,
-                                                    image: method.image
-                                                });
-                                            }
-                                        }}>
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                if (activeClick && activeClick.id == 'method_' + method.label) {
+                                                    setActiveClick(null);
+                                                } else {
+                                                    setActiveClick({
+                                                        id: 'method_' + method.label,
+                                                        label: method.label,
+                                                        desc: method.desc,
+                                                        image: method.image
+                                                    });
+                                                }
+                                            }}>
                                             <img src={method.image} alt="" />
                                             <span>{method.label}</span>
                                         </a>
@@ -356,19 +356,19 @@ export default function App(): JSX.Element {
                     </Card>
                     <div className="contact">
 
-                        <img src={contact} alt="" className="icon"/>
+                        <img src={contact} alt="" className="icon" />
                         <div className="line">Want to contact me? Try these</div>
                         <div className="opts">
                             <a href="mail:luc@lucemans.nl" className="opt">
-                                <img src={outlook} alt=""/>
+                                <img src={outlook} alt="" />
                                 luc@lucemans.nl
                             </a>
                             <a href="tel:+32483080579" className="opt">
-                                <img src={whatsapp} alt=""/>
+                                <img src={whatsapp} alt="" />
                                 +32 483 08 05 79
                             </a>
                             <a href="https://www.linkedin.com/in/luc-van-kampen-303038186/" className="opt">
-                                <img src={linkedin} alt=""/>
+                                <img src={linkedin} alt="" />
                                 Luc van Kampen
                             </a>
                         </div>
@@ -389,6 +389,8 @@ export default function App(): JSX.Element {
                     </div>
 
                     <Footer />
+
+                    <Web />
                 </div>
                 <Scrollbar />
             </div >

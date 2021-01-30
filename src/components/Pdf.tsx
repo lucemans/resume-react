@@ -18,7 +18,10 @@ export function Web(): JSX.Element {
 
     return (
         <div className="web">
-            Interactive version: https://resume.lvk.sh
+            View this document with more information for each item at
+            <div className="link">https://resume.lvk.sh</div>
+            And the source code at
+            <div className="link2">https://github.com/lucemans/resume-react</div>
         </div>
     );
 }
