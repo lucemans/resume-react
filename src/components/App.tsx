@@ -251,7 +251,7 @@ export default function App(): JSX.Element {
                         </ul>
                     </Card>
 
-                    <Card label="What I'm Learning" colorClass={['c1']}>
+                    <Card label="What I'm Learning Now" colorClass={['c1']}>
                         <ul>
                             {
                                 horisort2(Profile.learning, isMobile == 0 ? 2 : isMobile).map(skill => (
