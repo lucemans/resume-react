@@ -72,6 +72,9 @@ export const Profile = {
         new Repository('generator-lcreate', 'Project Creation Tool', 'https://github.com/lucemans/generator-lcreate'),
     ],
     experience: [
+        new Company('Codana', 'fullstack developer', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/codana.jpeg'), `
+            
+        `),
         new Company('The Eforum Factory', 'ontwikkelaar / jobstudent', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/eff.png'), `
             At the time of writing this I am employed at EForumFactory as a Software Engineer. EForum is an awesome company where I have learnt a variety of new skills,
             as well as the ability to work with others since ive started working for them i've become acquainted with git, angular, react, graphql, containerization, mssql,
