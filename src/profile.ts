@@ -72,7 +72,7 @@ export const Profile = {
         new Repository('generator-lcreate', 'Project Creation Tool', 'https://github.com/lucemans/generator-lcreate'),
     ],
     experience: [
-        new Company('Codana', 'fullstack developer', '2021 - Now', 'https://eforumfactory.be', require('../assets/experience/codana.jpeg'), `
+        new Company('Codana', 'fullstack developer', '2021 - Now', 'https://codana.eu', require('../assets/experience/codana.jpeg'), `
             
         `),
         new Company('The Eforum Factory', 'ontwikkelaar / jobstudent', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/eff.png'), `
