@@ -363,9 +363,9 @@ export default function App(): JSX.Element {
                                 <img src={outlook} alt="" />
                                 luc@lucemans.nl
                             </a>
-                            <a href="tel:+32483080579" className="opt">
+                            <a href="tel:+3218925911" className="opt">
                                 <img src={whatsapp} alt="" />
-                                +32 483 08 05 79
+                                +31 618 925 911
                             </a>
                             <a href="https://www.linkedin.com/in/luc-van-kampen-303038186/" className="opt">
                                 <img src={linkedin} alt="" />
