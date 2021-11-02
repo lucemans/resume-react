@@ -72,15 +72,18 @@ export const Profile = {
         new Repository('generator-lcreate', 'Project Creation Tool', 'https://github.com/lucemans/generator-lcreate'),
     ],
     experience: [
-        new Company('Codana', 'fullstack developer', '2021 - Now', 'https://codana.eu', require('../assets/experience/codana.jpeg'), `
+        new Company('Passionate People', 'fullstack developer', '2021 november - Now', 'https://passionatepeople.io', require('../assets/experience/pp.png'), `
             
         `),
-        new Company('The Eforum Factory', 'ontwikkelaar / jobstudent', '2018 - Now', 'https://eforumfactory.be', require('../assets/experience/eff.png'), `
+        new Company('Codana', 'fullstack developer', '2021 feb - 2021 october', 'https://codana.eu', require('../assets/experience/codana.jpeg'), `
+            
+        `),
+        new Company('The Eforum Factory', 'ontwikkelaar / jobstudent', '2018 - 2021', 'https://eforumfactory.be', require('../assets/experience/eff.png'), `
             At the time of writing this I am employed at EForumFactory as a Software Engineer. EForum is an awesome company where I have learnt a variety of new skills,
             as well as the ability to work with others since ive started working for them i've become acquainted with git, angular, react, graphql, containerization, mssql,
             ansible, terraform, and so much more.
         `),
-        new Company('NATO SHAPE - American High School', 'Student', '2016 tot juni 2020', 'https://www.dodea.edu/SHAPEHS/index.cfm', require('../assets/experience/sahs.png'), `
+        new Company('NATO SHAPE - American High School', 'Student', '2016 - 2020', 'https://www.dodea.edu/SHAPEHS/index.cfm', require('../assets/experience/sahs.png'), `
             Shape American High School is an International High School located on the Supreme Headquarters Allied Powers Europe military base in Mons, Belgium. 
         `),
     ]

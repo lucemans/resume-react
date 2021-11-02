@@ -177,7 +177,7 @@ export default function App(): JSX.Element {
                     <Card label="Experience" colorClass={['c3']}>
                         <ul>
                             {
-                                horisort(Profile.experience, 3).map(company => (
+                                Profile.experience.map(company => (
                                     <li key={company.label} className="company">
                                         <a href={company.url} className="flex between norotate" target="_blank" rel="noreferrer" onMouseEnter={() => {
                                             setActiveHover({
@@ -223,19 +223,19 @@ export default function App(): JSX.Element {
                                                 setActiveHover(null);
                                             }
                                         }}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                if (activeClick && activeClick.id == 'skill_' + skill.label) {
-                                                    setActiveClick(null);
-                                                } else {
-                                                    setActiveClick({
-                                                        id: 'skill_' + skill.label,
-                                                        label: skill.label,
-                                                        desc: skill.description,
-                                                        image: skill.image
-                                                    });
-                                                }
-                                            }}>
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            if (activeClick && activeClick.id == 'skill_' + skill.label) {
+                                                setActiveClick(null);
+                                            } else {
+                                                setActiveClick({
+                                                    id: 'skill_' + skill.label,
+                                                    label: skill.label,
+                                                    desc: skill.description,
+                                                    image: skill.image
+                                                });
+                                            }
+                                        }}>
                                             <img src={skill.image} alt="" />
                                             <span>{skill.label}</span>
                                         </a>
@@ -268,19 +268,19 @@ export default function App(): JSX.Element {
                                                 setActiveHover(null);
                                             }
                                         }}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                if (activeClick && activeClick.id == 'skill_' + skill.label) {
-                                                    setActiveClick(null);
-                                                } else {
-                                                    setActiveClick({
-                                                        id: 'skill_' + skill.label,
-                                                        label: skill.label,
-                                                        desc: skill.description,
-                                                        image: skill.image
-                                                    });
-                                                }
-                                            }}>
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            if (activeClick && activeClick.id == 'skill_' + skill.label) {
+                                                setActiveClick(null);
+                                            } else {
+                                                setActiveClick({
+                                                    id: 'skill_' + skill.label,
+                                                    label: skill.label,
+                                                    desc: skill.description,
+                                                    image: skill.image
+                                                });
+                                            }
+                                        }}>
                                             <img src={skill.image} alt="" />
                                             <span>{skill.label}</span>
                                         </a>
@@ -312,19 +312,19 @@ export default function App(): JSX.Element {
                                                 setActiveHover(null);
                                             }
                                         }}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                if (activeClick && activeClick.id == 'method_' + method.label) {
-                                                    setActiveClick(null);
-                                                } else {
-                                                    setActiveClick({
-                                                        id: 'method_' + method.label,
-                                                        label: method.label,
-                                                        desc: method.desc,
-                                                        image: method.image
-                                                    });
-                                                }
-                                            }}>
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            if (activeClick && activeClick.id == 'method_' + method.label) {
+                                                setActiveClick(null);
+                                            } else {
+                                                setActiveClick({
+                                                    id: 'method_' + method.label,
+                                                    label: method.label,
+                                                    desc: method.desc,
+                                                    image: method.image
+                                                });
+                                            }
+                                        }}>
                                             <img src={method.image} alt="" />
                                             <span>{method.label}</span>
                                         </a>
