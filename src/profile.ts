@@ -6,7 +6,7 @@ import Method from './objects/Method';
 export const Profile = {
     bio: {
         'NL': 'Mijn naam is Luc, op het moment dat ik dit schrijf (29 December 2020), ben ik al 19 jaar op deze aardbodem, waarvan ik de laatste 10 jaar fanatiek aan het programmeren ben geweest. Ik ben een nieuwsgierig individu, die gek is op maken en creeren. In combinatie met een enorm doorzettingsvermogen ben ik tot elke taak in staat. Ik woon in Breda, Nederland.',
-        'EN': 'My name is Luc, at the time of writing this (December 29th 2020), I have been on this planet for 19 years, ofwhich I have spent the last 10 programming like a mad man. I am a curious individual, who loves to create epic stuff. Paired with a crazy level of determination I\'m the man for every job. I live in Breda, Nederland.',
+        'EN': 'My name is Luc!, at the time of writing this (December 29th 2020), I have been on this planet for 19 years, ofwhich I have spent the last 10 programming like a mad man. I am a curious individual, who loves to create epic stuff. Paired with a crazy level of determination I\'m the man for every job. I live in Breda, Nederland.',
     },
     skills: [
         new Skill('react', 'http://reactjs.org/', require('../assets/skills/react.png'), 'I use react for most of my websites, I have my own project-setup that I prefer and ive writen a yeoman generator to create my perfect starter project allowing me to bootstrap within a matter of seconds.'),
