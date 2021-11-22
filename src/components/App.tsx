@@ -162,6 +162,15 @@ export default function App(): JSX.Element {
                     )
                 }
                 <div className="inner flex column stretch">
+                    <div className="deprecated">
+                        <div className="warning">Deprecation warning</div>
+                        <div className="message">
+                            This page is no longer in use nor is/will be receiving updates.<br />Please visit <a href="https://luc.wiki">https://luc.wiki</a> for a more up-to-date version.
+                        </div>
+                        <div className="signature">
+                            ~ Luc
+                        </div>
+                    </div>
                     <div className="header">
                         <img className="profile" src={profile} alt="" />
                         <div className="right flex column">
